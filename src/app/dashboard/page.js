@@ -5,7 +5,7 @@ import HouseSummary from "@/components/HouseSummary";
 import { publicStages } from "@/data/stages-public";
 import { membershipCoversStage } from "@/lib/access";
 import { pageMeta } from "@/lib/meta";
-import { projectLine, getProject } from "@/lib/project";
+import { getProject } from "@/lib/project";
 import { getViewer } from "@/lib/session";
 
 export const metadata = pageMeta({
@@ -32,7 +32,6 @@ export default async function DashboardPage({ searchParams }) {
   const { ready, project } = await getProject(viewer.user.id);
   if (ready && !project && params.later !== "1") redirect("/project");
   const { countStage } = await import("@/content");
-  const line = projectLine(project);
 
   return (
     <Container className="py-12 sm:py-16">
@@ -44,7 +43,6 @@ export default async function DashboardPage({ searchParams }) {
         {viewer.profile?.name ? `${viewer.profile.name}, these` : "These"} are the eight
         stages. A lock means the current membership does not cover that one.
       </p>
-      {line ? <p className="mt-3 text-sm text-gold">{line}</p> : null}
       <div className="mt-8 max-w-2xl">
         <HouseSummary project={project} />
       </div>
