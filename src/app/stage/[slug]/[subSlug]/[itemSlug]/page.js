@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import AssistantPanel from "@/components/guide/AssistantPanel";
 import ItemTick from "@/components/guide/ItemTick";
+import ProductOptions from "@/components/guide/ProductOptions";
 import MemberColumn from "@/components/guide/MemberColumn";
 import LockedStage from "@/components/LockedStage";
 import { checkKey } from "@/lib/check-key";
@@ -102,6 +103,7 @@ export default async function ItemPage({ params }) {
             </ul>
           </section>
         ))}
+        <ProductOptions itemSlug={itemSlug} project={guide.project} />
       </div>
       <nav className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-between" aria-label="Other items">
         {found.previous ? (

@@ -83,7 +83,7 @@ export default function ProjectForm({
           {floors.map((floor) => (
             <label
               key={floor}
-              className="flex h-12 cursor-pointer items-center justify-center rounded-lg border border-line bg-ink text-sm text-cream has-checked:border-gold has-checked:text-gold"
+              className="flex h-12 cursor-pointer items-center justify-center rounded-lg border border-line bg-ink text-sm text-cream has-[:checked]:border-gold has-[:checked]:text-gold"
             >
               <input
                 className="sr-only"
@@ -104,7 +104,7 @@ export default function ProjectForm({
           {buildTypes.map((type) => (
             <label
               key={type.id}
-              className="flex h-12 cursor-pointer items-center justify-center rounded-lg border border-line bg-ink text-sm text-cream has-checked:border-gold has-checked:text-gold"
+              className="flex h-12 cursor-pointer items-center justify-center rounded-lg border border-line bg-ink text-sm text-cream has-[:checked]:border-gold has-[:checked]:text-gold"
             >
               <input
                 className="sr-only"
@@ -139,7 +139,7 @@ export default function ProjectForm({
           {budgets.map((budget) => (
             <label
               key={budget.id}
-              className="flex cursor-pointer gap-3 rounded-lg border border-line bg-ink px-4 py-3 has-checked:border-gold"
+              className="flex cursor-pointer gap-3 rounded-lg border border-line bg-ink px-4 py-3 has-[:checked]:border-gold"
             >
               <input
                 className="mt-1"
