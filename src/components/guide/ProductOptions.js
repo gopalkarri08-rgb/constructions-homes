@@ -46,8 +46,8 @@ export default function ProductOptions({ itemSlug, project }) {
                   return (
                     <li
                       key={entry.name}
-                      className={`rounded-lg border px-4 py-4 ${
-                        fits ? "border-gold bg-ink" : "border-line bg-ink"
+                      className={`rounded-lg px-4 py-4 ${
+                        fits ? "border-2 border-gold bg-ink" : "border border-line bg-ink"
                       }`}
                     >
                       <div className="flex flex-wrap items-center gap-2">
