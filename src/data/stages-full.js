@@ -1,30 +1,16 @@
+import "server-only";
+
 /**
- * Stage guidance for a typical RCC-framed independent house in India.
- *
- * This is the content source for the journey cards and /stage/[id].
- * Add a stage by appending an object with the fields below; keep ids
- * sequential from 1. Pages should read this module rather than hard-coding copy.
- *
- * @typedef {'structure' | 'masonry' | 'plaster' | 'flooring' | 'openings' | 'woodwork' | 'paint' | 'handover'} StageIcon
- *
- * @typedef {Object} Stage
- * @property {number} id
- * @property {StageIcon} icon
- * @property {string} title
- * @property {string} summary One line on the journey card.
- * @property {string} metaDescription
- * @property {string} covers Short scope line under the title.
- * @property {string} description
- * @property {string[]} bestPractice
- * @property {string[]} minimumAcceptable
- * @property {string[]} checklist
- * @property {string[]} redFlags
+ * Full stage guidance. Server-only.
+ * Import this only after a server-side entitlement check.
+ * Do not import it from a client component, a public page, or any module
+ * that a logged-out bundle can reach.
  */
 
-/** @type {Stage[]} */
-export const stages = [
+const stages = [
   {
     id: 1,
+    slug: "structural-construction",
     icon: "structure",
     title: "Structural Construction",
     summary:
@@ -90,6 +76,7 @@ export const stages = [
   },
   {
     id: 2,
+    slug: "masonry-concealed-services",
     icon: "masonry",
     title: "Masonry + Concealed Services",
     summary: "Walls, and the pipes and wires that will be hidden inside them.",
@@ -149,6 +136,7 @@ export const stages = [
   },
   {
     id: 3,
+    slug: "plastering",
     icon: "plaster",
     title: "Plastering",
     summary: "Straight, sound plaster. The last chance to get the walls true.",
@@ -199,6 +187,7 @@ export const stages = [
   },
   {
     id: 4,
+    slug: "flooring-tiles",
     icon: "flooring",
     title: "Flooring / Tiles",
     summary: "Levels, slopes, and joints you will walk on every day.",
@@ -252,6 +241,7 @@ export const stages = [
   },
   {
     id: 5,
+    slug: "doors-windows",
     icon: "openings",
     title: "Doors & Windows",
     summary: "Openings that stay square, and keep the rain on the outside.",
@@ -306,6 +296,7 @@ export const stages = [
   },
   {
     id: 6,
+    slug: "interior-woodwork",
     icon: "woodwork",
     title: "Interior Woodwork",
     summary:
@@ -360,6 +351,7 @@ export const stages = [
   },
   {
     id: 7,
+    slug: "painting",
     icon: "paint",
     title: "Painting",
     summary: "A finish that stays put, because the wall underneath was ready.",
@@ -413,6 +405,7 @@ export const stages = [
   },
   {
     id: 8,
+    slug: "final-fittings-handover",
     icon: "handover",
     title: "Final Fittings & Handover",
     summary: "Taps, switches, snags, and the papers you should not leave without.",
@@ -501,16 +494,16 @@ stages.forEach((stage, index) => {
  * @param {string | number} id
  * @returns {Stage | null}
  */
-export function getStage(id) {
-  return stages.find((stage) => String(stage.id) === String(id)) ?? null;
+export function getFullStage(slug) {
+  return stages.find((stage) => stage.slug === slug) ?? null;
 }
 
 /**
  * @param {string | number} id
  * @returns {{ previous: Stage | null, next: Stage | null }}
  */
-export function getNeighbors(id) {
-  const index = stages.findIndex((stage) => String(stage.id) === String(id));
+export function getFullNeighbors(slug) {
+  const index = stages.findIndex((stage) => stage.slug === slug);
   if (index === -1) {
     return { previous: null, next: null };
   }

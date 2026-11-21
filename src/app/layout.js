@@ -1,6 +1,7 @@
 import { Fraunces, Outfit } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { getViewer } from "@/lib/session";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -42,7 +43,11 @@ export const viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }) {
+export const dynamic = "force-dynamic";
+
+export default async function RootLayout({ children }) {
+  const viewer = await getViewer();
+
   return (
     <html
       lang="en"
@@ -55,11 +60,11 @@ export default function RootLayout({ children }) {
         >
           Skip to content
         </a>
-        <Header />
+        <Header user={viewer.user} />
         <main id="content" className="flex-1">
           {children}
         </main>
-        <Footer />
+        <Footer user={viewer.user} />
       </body>
     </html>
   );

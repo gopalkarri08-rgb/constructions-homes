@@ -1,14 +1,23 @@
 import Link from "next/link";
 import Container from "./Container";
 
-const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/#journey", label: "Journey" },
-  { href: "/get-started", label: "Get Started" },
-  { href: "/about", label: "About" },
-];
+export default function Footer({ user }) {
+  const links = user
+    ? [
+        { href: "/", label: "Home" },
+        { href: "/dashboard", label: "Dashboard" },
+        { href: "/account", label: "Account" },
+        { href: "/about", label: "About" },
+      ]
+    : [
+        { href: "/", label: "Home" },
+        { href: "/#stages", label: "Stages" },
+        { href: "/#plans", label: "Plans" },
+        { href: "/about", label: "About" },
+        { href: "/login", label: "Log in" },
+        { href: "/signup", label: "Sign up" },
+      ];
 
-export default function Footer() {
   return (
     <footer className="mt-auto border-t border-line">
       <Container className="py-14 sm:py-16">
@@ -17,7 +26,7 @@ export default function Footer() {
           should be built.
         </p>
         <nav aria-label="Footer" className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-          {LINKS.map((link) => (
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -30,7 +39,7 @@ export default function Footer() {
         <p className="mt-8 max-w-2xl text-sm leading-relaxed text-cream-dim">
           General guidance for a typical RCC-framed independent house in India.
           Your soil report, structural drawings, and local building rules govern
-          the site.
+          the site. The stage standards are for members.
         </p>
         <p className="mt-6 text-xs tracking-wide text-cream-dim">
           © 2026 Constructions.homes

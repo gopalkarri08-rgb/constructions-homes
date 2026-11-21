@@ -99,7 +99,7 @@ function NeighborLink({ stage, direction }) {
 
   return (
     <Link
-      href={`/stage/${stage.id}`}
+      href={`/stage/${stage.slug}`}
       className={`group flex flex-col rounded-lg border border-line bg-ink-soft px-5 py-4 transition-colors hover:border-gold/40 ${
         direction === "next" ? "sm:items-end sm:text-right" : ""
       }`}
@@ -120,7 +120,7 @@ export default function StageGuide({ stage, previous, next }) {
   return (
     <Container className="py-10 sm:py-14">
       <Link
-        href="/#journey"
+        href="/dashboard"
         className="inline-flex items-center gap-2 text-sm text-cream-dim hover:text-cream"
       >
         <svg viewBox="0 0 16 16" aria-hidden="true" className="h-3.5 w-3.5">
@@ -133,7 +133,7 @@ export default function StageGuide({ stage, previous, next }) {
             strokeLinejoin="round"
           />
         </svg>
-        All stages
+        Your stages
       </Link>
 
       <p className="mt-8 font-display text-3xl font-semibold tabular-nums text-gold">

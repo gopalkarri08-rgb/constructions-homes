@@ -67,7 +67,7 @@ export default function AboutPage() {
       </ol>
 
       <Link
-        href="/get-started"
+        href="/signup"
         className="mt-10 inline-flex h-12 items-center justify-center rounded-full bg-cream px-6 text-sm font-medium text-ink hover:bg-gold-bright"
       >
         Get Started
