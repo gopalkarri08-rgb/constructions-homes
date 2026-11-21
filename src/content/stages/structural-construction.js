@@ -6,12 +6,12 @@ export const stage = {
   subStages: [
     sub(
       "soil-investigation",
-      "Soil investigation",
+      "Perform a soil test",
       "Know the ground before the foundation size is frozen.",
       [
         item(
           "when-to-test",
-          "When a soil test is required",
+          "Decide if this plot needs a soil test",
           "A soil test tells the engineer what the ground can carry. Filled plots, black cotton soil, and a high water table change the foundation.",
           "Commission a soil investigation and give the report to the structural engineer before the footing size is fixed. For a very small single-storey on uniform natural ground, trial pits the engineer has actually seen are the least that should happen.",
           "Do not start excavation on 'the soil here is always good' when the plot is filled or the area is known for expansive soil.",
@@ -30,7 +30,7 @@ export const stage = {
         ),
         item(
           "founding-level",
-          "Founding level",
+          "Check how deep the pit must go",
           "The footing must sit on the stratum the design assumed, not on loose soil thrown back into the pit.",
           "Match excavation depth and width to the drawing. The bottom should be firm and level. Remove standing water before any concrete.",
           "If the pit is deeper than the drawing because of soft soil, stop and ask the engineer. Do not fill it back with loose earth to 'make up the level'.",
@@ -48,12 +48,12 @@ export const stage = {
     ),
     sub(
       "site-setup-excavation",
-      "Site setup and excavation",
+      "Dig and check the foundation pit",
       "Set the house out on the ground before anyone digs.",
       [
         item(
           "setting-out",
-          "Setting out",
+          "Mark where the columns will stand",
           "Setting out marks the centre lines of columns and walls on the ground so the house matches the sanctioned plan.",
           "Use the architectural and structural grid. Check diagonals of the outer rectangle so the building is square, and keep offsets from the boundary as approved.",
           "A string line and a checked diagonal are the minimum. Do not dig from memory of the plot sketch.",
@@ -66,7 +66,7 @@ export const stage = {
         ),
         item(
           "anti-termite-in-soil",
-          "Anti-termite treatment in the soil",
+          "Treat the ground against termites",
           "Termites travel through the soil under the floor. Treatment has to happen before that soil is closed.",
           "Treat the foundation pits and the soil under the plinth with a labelled chemical, and keep a written note of the product and where it was applied.",
           "A treatment with a record is the minimum. A promise to 'do it later' after the floor is cast is not a treatment.",
@@ -78,12 +78,12 @@ export const stage = {
     ),
     sub(
       "pcc-and-footings",
-      "PCC and footings",
+      "Cast the footings under the columns",
       "The concrete and steel under the columns.",
       [
         item(
           "pcc",
-          "Plain cement concrete under the footing",
+          "Lay a clean concrete bed (PCC) under the footing",
           "PCC is the plain bedding under the footing steel. It gives a clean, level surface so the reinforcement does not sit in soil.",
           "Cast PCC to the thickness on the drawing, level it, and let it set before footing steel is placed.",
           "Do not place footing bars directly on the excavated soil.",
@@ -93,7 +93,7 @@ export const stage = {
         ),
         item(
           "concrete-grade",
-          "Concrete grade",
+          "Check the concrete mix is strong enough",
           "The grade (M20, M25, or whatever the drawing says) is the strength of the concrete. Extra water makes it easier to pour and weaker for the life of the house.",
           "Use the grade on the drawing. In towns, ready-mix with a delivery ticket is the clearer record. If you mix on site, measure with gauge boxes, not by the ghamela, and do not add water freely.",
           "Do not drop below the specified grade. M20 is a common house minimum only when the drawing allows it.",
@@ -103,7 +103,7 @@ export const stage = {
         ),
         item(
           "steel-and-spacing",
-          "Steel, TMT and bar spacing",
+          "Check the steel bars and their spacing",
           "Footing bars and their spacing are sized for the load. Fe 500D and Fe 550D are the ductile grades usually specified for houses.",
           "Match diameter, number, and spacing to this footing on the drawing. Ask for mill test certificates. Reject bars with heavy rust, reduced section, or a bend that was opened and bent again in the same place.",
           "Known-brand TMT with a test certificate, stored off the ground. Do not substitute a smaller bar because 'it is the same steel'.",
@@ -113,7 +113,7 @@ export const stage = {
         ),
         item(
           "cover-blocks",
-          "Cover blocks",
+          "Keep the steel off the soil with cover blocks",
           "Cover is the concrete between the steel and the soil or air. Without it the bars rust.",
           "Use proper cover blocks, not broken brick or stone. Where a house drawing is silent, engineers commonly call for about 50 mm in footings. Follow the drawing if it says otherwise.",
           "Cover blocks tied on before the pour. Stone chips are not cover blocks.",
@@ -123,7 +123,7 @@ export const stage = {
         ),
         item(
           "shuttering",
-          "Shuttering",
+          "Check the mould before you pour",
           "Shuttering is the mould. If it leaks or moves, the footing changes shape and loses cement paste.",
           "Shuttering should be aligned, braced, and closed enough that slurry will not run out.",
           "A mould that holds its line for the whole pour. Gaps stuffed with mud are not a seal.",
@@ -133,7 +133,7 @@ export const stage = {
         ),
         item(
           "vibration",
-          "Vibration",
+          "Vibrate the concrete so it has no holes",
           "A needle vibrator settles the concrete around the bars. Without it you get honeycombing: stones with empty gaps.",
           "Vibrate in layers as the concrete is placed. Stop before the mix separates.",
           "A working needle vibrator on site, actually used. Tamping with a rod alone is a poor substitute in a reinforced footing.",
@@ -143,7 +143,7 @@ export const stage = {
         ),
         item(
           "inspection-before-pour",
-          "Inspection before the pour",
+          "Get the engineer to look before you pour",
           "Once the concrete is in, the steel, the cover, and the soil under the footing are hidden.",
           "The structural engineer should see the reinforcement, cover, and shuttering before every footing pour, not only the first one.",
           "Do not pour because the mixer is booked if nobody who understands the drawing has looked.",
@@ -155,12 +155,12 @@ export const stage = {
     ),
     sub(
       "plinth-beam-dpc",
-      "Plinth beam and DPC",
+      "Build the ground beam and damp-proof layer (DPC)",
       "The beam at ground level, and the barrier that stops damp rising.",
       [
         item(
           "plinth-beam",
-          "Plinth beam",
+          "Cast the beam at ground level",
           "The plinth beam ties the columns at ground level and carries the walls above the soil.",
           "Cast it to the size and steel on the drawing, with the same care as any other beam: cover, shuttering, vibration, and an inspection before the pour.",
           "Do not skip it, and do not reduce its depth, because the ground floor 'does not need it'.",
@@ -170,7 +170,7 @@ export const stage = {
         ),
         item(
           "dpc",
-          "Damp-proof course",
+          "Lay the damp-proof layer (DPC)",
           "A DPC is a continuous barrier at plinth level, above outside ground, so moisture does not climb the walls.",
           "Cast a continuous DPC, usually a rich concrete layer or the barrier the drawing shows. Do not let later external plaster bridge over it.",
           "A DPC with no gaps. A painted line on the wall is not a DPC.",
@@ -180,7 +180,7 @@ export const stage = {
         ),
         item(
           "backfilling",
-          "Backfilling",
+          "Fill and compact the soil under the floor",
           "The soil put back around the foundation and under the ground floor.",
           "Fill in layers and compact. Do not use rubbish, roots, or pure clay lumps. The anti-termite treatment of this soil belongs here if it was not done in the pits.",
           "Compacted fill in layers. A truck of loose soil dumped and levelled by foot is not compacted.",
@@ -192,12 +192,12 @@ export const stage = {
     ),
     sub(
       "columns",
-      "Columns",
+      "Cast the columns",
       "The vertical members that carry the floors.",
       [
         item(
           "starter-and-plumb",
-          "Starter and plumb",
+          "Start the column straight and upright",
           "A column must rise on its grid line and stay vertical. A leaning column is a leaning house.",
           "Cast a starter (kicker) on the line, then check the shutter is plumb both ways before the full pour.",
           "At least a plumb check on each face before concrete. Do not 'adjust it by eye' from the ground.",
@@ -207,7 +207,7 @@ export const stage = {
         ),
         item(
           "column-steel",
-          "Main bars and stirrups",
+          "Check the vertical bars and the ties",
           "Main bars take the load. Stirrups hold them and resist shear, and they matter in an earthquake.",
           "Match the number, diameter, and stirrup spacing to the drawing, including closer stirrups near the beam junctions if the drawing shows them. Laps go where the drawing allows, at the specified length.",
           "Do not open up the stirrup spacing to save steel, and do not lap every bar at the same point if the drawing staggers them.",
@@ -217,7 +217,7 @@ export const stage = {
         ),
         item(
           "column-cover",
-          "Cover in columns",
+          "Keep a concrete cover around the column steel",
           "Column bars need concrete cover, commonly about 40 mm unless the drawing says otherwise.",
           "Tie cover blocks on the sides before the shutter closes. Bars must not touch the shutter.",
           "Cover blocks all round. A single block 'to show the engineer' is not cover.",
@@ -227,7 +227,7 @@ export const stage = {
         ),
         item(
           "column-pour",
-          "Pour and honeycombing",
+          "Pour the column and look for holes",
           "Column concrete has to get past the bars to the bottom. Honeycombing at the foot of a column is a common, serious defect.",
           "Pour in layers, vibrate each layer, and do not drop concrete from a great height so it separates. If honeycombing shows when the shutter comes off, call the engineer before anyone hides it with a cement wash.",
           "A vibrator used for the full height. A cement paste smear over exposed stones is not a repair.",
@@ -239,12 +239,12 @@ export const stage = {
     ),
     sub(
       "beams",
-      "Beams",
+      "Cast the beams",
       "The horizontal members that carry walls and slabs into the columns.",
       [
         item(
           "beam-steel",
-          "Beam steel and stirrups",
+          "Check the beam steel and the ties",
           "Beam bars and stirrups are not interchangeable with 'whatever rod is left'.",
           "Follow the bar marks on the drawing: bottom bars, top bars, and stirrup spacing, tighter near supports if that is what is drawn.",
           "Do not substitute a smaller diameter, and do not skip the extra stirrups at the ends.",
@@ -254,7 +254,7 @@ export const stage = {
         ),
         item(
           "sleeves-in-beams",
-          "Sleeves before the pour",
+          "Put pipe sleeves in before you pour",
           "Pipes and cables that must cross a beam need a sleeve cast in. Cutting the beam later cuts the steel.",
           "Place sleeves where the services drawings show them, before concrete. Do not core a beam afterwards for a forgotten pipe.",
           "If a sleeve was missed, stop and ask the engineer. A chisel through a beam is not a small favour.",
@@ -264,7 +264,7 @@ export const stage = {
         ),
         item(
           "beam-props",
-          "Props and shuttering",
+          "Check the supports under the beam",
           "The beam shutter and its props carry wet concrete. If they sag, the beam sags.",
           "Props should be plumb, braced, and founded on something firm, not on loose soil. The soffit should be at the level on the drawing.",
           "Do not remove beam props in a few days so the plates can go to another site. Striking time follows the engineer and IS 456, and it is longer for blended cements such as PPC and PSC.",
@@ -276,12 +276,12 @@ export const stage = {
     ),
     sub(
       "slab-casting",
-      "Slab casting",
+      "Cast the floor slab",
       "The floor you will live on. The steel in it disappears the day it is cast.",
       [
         item(
           "slab-steel",
-          "Slab steel, chairs and cover",
+          "Lay both layers of slab steel and hold the top one up",
           "Slab bars are small and easy to walk flat. Chairs hold the top steel up. Cover at the bottom is commonly 20 to 30 mm unless the drawing says otherwise.",
           "Lay both layers as drawn, with chairs so the top bars stay up, and cover blocks under the bottom bars. Do not let the top steel get pushed to the bottom by workers walking on it.",
           "Both directions of steel, at the spacing on the drawing, still in place when the pour starts.",
@@ -291,7 +291,7 @@ export const stage = {
         ),
         item(
           "slab-sleeves",
-          "Openings and conduits in the slab",
+          "Place pipe openings before the slab is cast",
           "Toilet drops, rainwater pipes, and some conduits belong in the slab. They must be placed before the pour.",
           "Sleeves and openings as on the drawing, with extra bars around openings if the engineer has detailed them. Do not core a finished slab for a stack that was forgotten.",
           "Every known pipe drop has a sleeve. A core cutter through a slab rib is a reason to stop.",
@@ -301,7 +301,7 @@ export const stage = {
         ),
         item(
           "slab-pour",
-          "The pour itself",
+          "Pour the slab in one go",
           "A slab should be cast in one operation. A cold joint through the middle, because the mixer was late, is a defect.",
           "Keep the grade, do not add water, vibrate, and finish to the thickness and level on the drawing. If the pour must stop, stop only where the engineer allows a joint.",
           "The engineer has seen the steel. Concrete is not poured into standing water on the shutter.",
@@ -313,12 +313,12 @@ export const stage = {
     ),
     sub(
       "curing-and-striking",
-      "Curing and striking",
+      "Keep the concrete wet (curing)",
       "Concrete gains strength only if it stays wet, and props stay until it can carry itself.",
       [
         item(
           "curing",
-          "Curing",
+          "Keep the concrete wet",
           "Curing is keeping the concrete wet. PPC and PSC, which most Indian house sites buy, need longer than a quick splash.",
           "Pond the slab, or keep hessian continuously wet. Plan on 10 to 14 days for slabs, and start as soon as the surface can take it. Ordinary Portland cement still needs at least a week.",
           "Seven days of real moist curing is the floor. A bucket in the morning and nothing else is not curing.",
@@ -328,7 +328,7 @@ export const stage = {
         ),
         item(
           "striking-props",
-          "When props come out",
+          "Leave the supports in until the slab can carry itself",
           "IS 456 is the usual reference for striking formwork. The period is longer for larger spans and for blended cements.",
           "Leave slab props for the period your engineer gives. Do not send them back with the shuttering gang after three or four days.",
           "Props stay at least for the IS 456 period for your span. Soffit plates can come earlier only if the props remain.",
@@ -338,13 +338,40 @@ export const stage = {
         ),
         item(
           "records",
-          "A simple record",
+          "Write down the pour date",
           "You will not remember which slab was cast on which day.",
           "Note the date, the cement brand, the grade, and whether the engineer saw the steel. Keep delivery tickets and cube results if cubes were taken.",
           "At least the pour date and a photograph of the steel.",
           ["One page in a notebook, or a photo album by date."],
           ["No date, and props are already gone."],
           ["Where are the delivery tickets for this pour?"],
+        ),
+      ],
+    ),
+    sub(
+      "concrete-sample",
+      "Send a concrete sample to a lab",
+      "A small extra. It tells you if the mix was as strong as the drawing asked.",
+      [
+        item(
+          "take-cubes",
+          "Take sample cubes on pour day",
+          "A cube is a small block of the same concrete, kept and tested later. It is how you know the mix was not watered down.",
+          "If you choose this, take the samples from the concrete that is going into the slab or footings, and label the date and the member.",
+          "This step can be skipped. If you do it, the cubes must be from today's pour, not from a different mixer.",
+          ["The cubes are labelled with the date.", "They are kept damp, not left in the sun."],
+          ["Cubes made from a different, richer mix than the one in the slab."],
+          ["Are these cubes from the concrete going into this slab?"],
+        ),
+        item(
+          "read-result",
+          "Read the 28-day result in plain words",
+          "The lab number is the strength. The drawing's grade (M20, M25, and so on) is the strength you were promised.",
+          "Ask the engineer to say, in one sentence, whether the result meets the grade. Keep the report with the drawings.",
+          "A number you cannot compare to the drawing is not a result you can use.",
+          ["The report names the date of the pour.", "You know if it passed or failed."],
+          ["A report with no one willing to say if it passed."],
+          ["Does this result meet the grade on the drawing?"],
         ),
       ],
     ),

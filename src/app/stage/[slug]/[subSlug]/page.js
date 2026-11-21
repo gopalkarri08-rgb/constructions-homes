@@ -4,6 +4,8 @@ import AssistantPanel from "@/components/guide/AssistantPanel";
 import ItemTick from "@/components/guide/ItemTick";
 import MemberColumn from "@/components/guide/MemberColumn";
 import ProgressMeter from "@/components/guide/ProgressMeter";
+import SkipStep from "@/components/guide/SkipStep";
+import WhyMatters from "@/components/guide/WhyMatters";
 import LockedStage from "@/components/LockedStage";
 import { checkKey } from "@/lib/check-key";
 import { progressFor } from "@/lib/checks";
@@ -38,16 +40,31 @@ export default async function SubStagePage({ params }) {
 
   const found = guide.content.getSubStage(slug, subSlug);
   if (!found) notFound();
-  const progress = progressFor(guide.tree.subStages, guide.checks.keys);
+  const progress = progressFor(guide.tree.subStages, guide.checks.keys, guide.skips.slugs);
   const subProgress = progress.bySub[found.subStage.slug];
   const subIndex = guide.tree.subStages.findIndex((entry) => entry.slug === subSlug);
+  const nextItem = found.subStage.items.find(
+    (entry) => !guide.checks.keys.has(checkKey(subSlug, entry.slug)),
+  );
 
   return (
     <MemberColumn
+      back={{ href: `/stage/${slug}`, label: "Back" }}
       kicker={`Part ${String(subIndex + 1).padStart(2, "0")}`}
       title={found.subStage.title}
       lede={found.subStage.summary}
-      progress={<ProgressMeter done={subProgress.done} total={subProgress.total} />}
+      progress={
+        subProgress.skipped ? null : (
+          <ProgressMeter done={subProgress.done} total={subProgress.total} />
+        )
+      }
+      hint={
+        subProgress.skipped
+          ? "You skipped this optional step."
+          : nextItem
+            ? `What to do next: ${nextItem.title}.`
+            : "Every check in this step is ticked."
+      }
       crumbs={[
         { href: "/dashboard", label: "Your stages" },
         { href: `/stage/${slug}`, label: guide.preview.title },
@@ -61,7 +78,22 @@ export default async function SubStagePage({ params }) {
         />
       }
     >
-      <ol className="divide-y divide-white/10 border-y border-white/10">
+      <div className="space-y-4">
+        {found.subStage.optional ? (
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="rounded-full border border-gold/40 px-2 py-0.5 text-[0.65rem] uppercase tracking-[0.14em] text-gold">
+              Optional
+            </span>
+            <SkipStep
+              stageSlug={slug}
+              subStageSlug={subSlug}
+              initial={guide.skips.slugs.has(subSlug)}
+            />
+          </div>
+        ) : null}
+        <WhyMatters why={found.subStage.why} timeHint={found.subStage.timeHint} />
+      </div>
+      <ol className="mt-6 divide-y divide-white/10 border-y border-white/10">
         {found.subStage.items.map((entry) => {
           const href = `/stage/${slug}/${subSlug}/${entry.slug}`;
           const checked = guide.checks.keys.has(checkKey(subSlug, entry.slug));

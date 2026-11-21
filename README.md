@@ -27,7 +27,9 @@ In the Supabase SQL editor, or with the Supabase CLI, run:
 
 That creates `profiles`, `memberships`, and `payments`.
 
-`supabase/migrations/20261122000000_user_item_checks.sql` creates the per-user ticks. Apply it on Supabase project `cshlyxsmzxmvorpjsvpy` when the stage-hierarchy pull request is merged, not before. Members can read and write only their own rows. Row level security lets a user read only their own rows. There are no insert or update policies for signed-in users. Membership and payment writes go through the service role. A profile row is created by a security-definer trigger from the name and location collected at email signup.
+`supabase/migrations/20261122000000_user_item_checks.sql` creates the per-user ticks.
+
+`supabase/migrations/20261122120000_user_step_skips.sql` stores which optional steps a member skipped. Apply it on Supabase project `cshlyxsmzxmvorpjsvpy` only when the plain-steps pull request merges, not before. Members can read and write only their own rows. Row level security lets a user read only their own rows. There are no insert or update policies for signed-in users. Membership and payment writes go through the service role. A profile row is created by a security-definer trigger from the name and location collected at email signup.
 
 ### Supabase redirect URLs
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowUp, Camera, Mic } from "lucide-react";
 import { useRef, useState } from "react";
 
 export default function AssistantPanel({
@@ -17,6 +18,7 @@ export default function AssistantPanel({
   const [pending, setPending] = useState(false);
   const recorderRef = useRef(null);
   const fileRef = useRef(null);
+  const fieldId = `assist-${itemSlug || subStageSlug || stageSlug}`;
 
   async function toggleMic() {
     if (recording && recorderRef.current) {
@@ -24,12 +26,10 @@ export default function AssistantPanel({
       setRecording(false);
       return;
     }
-
     if (!navigator.mediaDevices?.getUserMedia) {
-      setError("This browser cannot record audio. You can still type.");
+      setError("This browser cannot record. You can still type.");
       return;
     }
-
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       const media = new MediaRecorder(stream);
@@ -46,7 +46,7 @@ export default function AssistantPanel({
       setRecording(true);
       setError("");
     } catch {
-      setError("The microphone was not allowed. You can still type or add a photo.");
+      setError("Microphone was not allowed. You can still type or add a photo.");
     }
   }
 
@@ -56,12 +56,10 @@ export default function AssistantPanel({
       setError("Add a note, a photo, or a voice clip.");
       return;
     }
-
-    const mine = text.trim() || (imageFile ? "Photo attached" : "Voice note");
+    const mine = text.trim() || (imageFile ? "Photo" : "Voice note");
     setMessages((current) => [...current, { role: "you", text: mine }]);
     setPending(true);
     setError("");
-
     const body = new FormData();
     body.set("stageSlug", stageSlug);
     body.set("subStageSlug", subStageSlug);
@@ -69,12 +67,10 @@ export default function AssistantPanel({
     body.set("message", text.trim());
     if (imageFile) body.set("image", imageFile);
     if (audioBlob) body.set("audio", audioBlob, "note.webm");
-
     setText("");
     setImageFile(null);
     setAudioBlob(null);
     if (fileRef.current) fileRef.current.value = "";
-
     try {
       const response = await fetch("/api/assist", { method: "POST", body });
       const data = await response.json().catch(() => ({}));
@@ -83,75 +79,67 @@ export default function AssistantPanel({
         { role: "guide", text: data.reply || data.error || "AI assistant coming soon" },
       ]);
     } catch {
-      setMessages((current) => [
-        ...current,
-        { role: "guide", text: "AI assistant coming soon" },
-      ]);
+      setMessages((current) => [...current, { role: "guide", text: "AI assistant coming soon" }]);
     }
     setPending(false);
   }
 
   return (
-    <aside className="rounded-lg border border-line bg-ink-soft p-5">
-      <p className="text-[0.68rem] uppercase tracking-[0.18em] text-gold">Assistant</p>
-      <h2 className="mt-2 font-display text-2xl font-semibold tracking-[-0.02em] text-cream">
-        Ask about this
-      </h2>
-      <p className="mt-2 text-sm leading-relaxed text-cream-dim">{scopeLabel}</p>
-      <div className="mt-4 space-y-3">
-        {messages.length === 0 ? (
-          <p className="text-sm leading-relaxed text-cream-dim">
-            Photos and voice stay on this phone for now. The reply is a placeholder until an assistant is connected.
-          </p>
-        ) : (
-          messages.map((message, index) => (
-            <p
-              key={`${message.role}-${index}`}
-              className={`rounded-lg px-3 py-2 text-sm leading-relaxed ${
-                message.role === "you" ? "bg-ink text-cream" : "border border-gold/30 text-cream"
-              }`}
-            >
-              {message.text}
-            </p>
-          ))
-        )}
-      </div>
-      <form onSubmit={onSubmit} className="mt-4 space-y-3">
-        <label htmlFor={`assist-${itemSlug || subStageSlug || stageSlug}`} className="sr-only">
-          Message
-        </label>
-        <textarea
-          id={`assist-${itemSlug || subStageSlug || stageSlug}`}
-          value={text}
-          onChange={(event) => setText(event.target.value)}
-          rows={3}
-          placeholder="Ask about this part of the work"
-          className="w-full resize-none rounded-lg border border-line bg-ink px-3 py-2 text-base text-cream outline-none placeholder:text-[#9c9284] focus:border-gold/70"
-        />
-        <div className="flex flex-wrap items-center gap-2">
+    <div className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-ink/95 backdrop-blur-md">
+      <form onSubmit={onSubmit} className="mx-auto w-full max-w-3xl px-3 py-2 sm:px-5">
+        <p className="truncate px-1 text-xs text-cream-dim">{scopeLabel}</p>
+        {messages.length > 0 ? (
+          <div className="mt-1 max-h-28 space-y-1 overflow-y-auto">
+            {messages.slice(-4).map((message, index) => (
+              <p
+                key={`${message.role}-${index}`}
+                className={`rounded-2xl px-3 py-1.5 text-sm leading-snug ${
+                  message.role === "you" ? "ml-8 bg-ink-soft text-cream" : "mr-8 border border-gold/30 text-cream"
+                }`}
+              >
+                {message.text}
+              </p>
+            ))}
+          </div>
+        ) : null}
+        <div className="mt-1 flex items-end gap-2">
+          <label htmlFor={fieldId} className="sr-only">
+            Message the assistant
+          </label>
+          <textarea
+            id={fieldId}
+            value={text}
+            rows={1}
+            onChange={(event) => setText(event.target.value)}
+            placeholder="Ask about this step"
+            className="max-h-24 min-h-11 flex-1 resize-none rounded-full border border-line bg-ink-soft px-4 py-2.5 text-base text-cream outline-none placeholder:text-[#9c9284] focus:border-gold/70"
+          />
           <button
             type="button"
             onClick={() => fileRef.current?.click()}
-            className="inline-flex h-10 items-center rounded-full border border-line px-3 text-sm text-cream"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line text-cream"
+            aria-label="Add a photo"
           >
-            Photo
+            <Camera className="h-5 w-5" aria-hidden />
           </button>
           <button
             type="button"
             onClick={toggleMic}
-            className={`inline-flex h-10 items-center rounded-full border px-3 text-sm ${
+            className={`inline-flex h-11 w-11 items-center justify-center rounded-full border ${
               recording ? "border-gold text-gold" : "border-line text-cream"
             }`}
+            aria-label={recording ? "Stop recording" : "Record a voice note"}
             aria-pressed={recording}
           >
-            {recording ? "Stop mic" : "Mic"}
+            <Mic className="h-5 w-5" aria-hidden />
           </button>
           <button
             type="submit"
             disabled={pending}
-            className="inline-flex h-10 items-center rounded-full bg-cream px-4 text-sm font-medium text-ink disabled:opacity-60"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-cream text-ink disabled:opacity-60"
+            aria-label="Send"
           >
-            {pending ? "Sending…" : "Send"}
+            <ArrowUp className="h-5 w-5" aria-hidden />
           </button>
         </div>
         <input
@@ -160,16 +148,17 @@ export default function AssistantPanel({
           accept="image/*"
           capture="environment"
           className="sr-only"
-          onChange={(event) => {
-            const file = event.target.files?.[0] ?? null;
-            setImageFile(file);
-            setError("");
-          }}
+          onChange={(event) => setImageFile(event.target.files?.[0] ?? null)}
         />
-        {imageFile ? <p className="text-xs text-cream-dim">Photo ready: {imageFile.name}</p> : null}
-        {audioBlob ? <p className="text-xs text-cream-dim">Voice note ready on this device.</p> : null}
-        {error ? <p className="text-sm text-[#f0cfc4]">{error}</p> : null}
+        {imageFile || audioBlob || error ? (
+          <p className="px-2 pt-1 text-xs text-cream-dim">
+            {error ||
+              [imageFile ? `Photo ready: ${imageFile.name}` : "", audioBlob ? "Voice note ready." : ""]
+                .filter(Boolean)
+                .join(" ")}
+          </p>
+        ) : null}
       </form>
-    </aside>
+    </div>
   );
 }

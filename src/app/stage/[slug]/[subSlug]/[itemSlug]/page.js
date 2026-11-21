@@ -52,9 +52,10 @@ export default async function ItemPage({ params }) {
 
   return (
     <MemberColumn
+      back={{ href: `/stage/${slug}/${subSlug}`, label: "Back" }}
       kicker={found.subStage.title}
       title={found.item.title}
-      lede={null}
+      lede={found.subStage.timeHint || null}
       crumbs={[
         { href: "/dashboard", label: "Your stages" },
         { href: `/stage/${slug}`, label: guide.preview.title },

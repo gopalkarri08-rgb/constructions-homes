@@ -6,12 +6,12 @@ export const stage = {
   subStages: [
     sub(
       "board-and-drawing",
-      "Board grade and the drawing",
+      "Choose a water-safe board and agree the sizes",
       "Most kitchen failures are the board and the edges, not the laminate colour.",
       [
         item(
           "grade",
-          "BWR, BWP and what does not belong",
+          "Check the board grade, especially under the sink",
           "MR and commercial plywood are for dry furniture. They swell beside a sink. Particle board does the same.",
           "Kitchen carcasses should be boiling-water-resistant (BWR) at a minimum. Under and around the sink, use boiling-water-proof plywood (BWP, marine grade) or a board the maker rates for standing water.",
           "You have seen the grade stamped on the board, not only heard the word modular. Modular is not a grade.",
@@ -21,7 +21,7 @@ export const stage = {
         ),
         item(
           "drawing-before-cutting",
-          "Drawing before cutting",
+          "Agree sizes and door swings before cutting",
           "A carpenter's 'standard' is not your tap position or which hand you use.",
           "Agree heights, door swings, the fridge and dishwasher niches, and the chimney height the appliance maker specifies, before a saw comes out.",
           "A marked wall or a sketch you have signed. Cutting from memory of a showroom is how shutters open the wrong way.",
@@ -33,12 +33,12 @@ export const stage = {
     ),
     sub(
       "kitchen-carcass",
-      "Kitchen carcass",
+      "Build the kitchen boxes",
       "The box that has to survive the monsoon and a dripping tap.",
       [
         item(
           "thickness-and-edges",
-          "Thickness and edge banding",
+          "Use thick board and cover every raw edge",
           "An 18 mm carcass is normal good practice. A raw plywood edge drinks humid air.",
           "Edge-band every exposed edge, including shelf fronts you will touch. Backs should sit in a groove, not be nailed onto the rear where they peel off.",
           "Edge band on exposed edges. A promise to 'touch it up with polish' is not banding.",
@@ -48,7 +48,7 @@ export const stage = {
         ),
         item(
           "sink-base",
-          "The sink unit",
+          "Keep the tap valve reachable under the sink",
           "A braided hose fails on a Tuesday. You should not have to break the cabinet to reach the valve.",
           "Give the sink unit a waterproof base and a tray or lining so a leak comes out where you can see it. Keep the shut-off valves reachable.",
           "Valves you can turn without unscrewing the unit. The base is not MR board.",
@@ -60,12 +60,12 @@ export const stage = {
     ),
     sub(
       "shutters-hardware",
-      "Shutters and hardware",
+      "Hang the shutters and drawers",
       "The hardware carries the shutter, not the laminate.",
       [
         item(
           "hinges-and-channels",
-          "Hinges and drawer channels",
+          "Use hinges and channels that can carry the load",
           "A tall pantry shutter on two small hinges sags. A cheap channel droops when the drawer is loaded.",
           "Use hinges and channels rated for the size, screwed into solid board. A tall shutter wants three hinges, not two.",
           "Shutters have even gaps and close fully. Drawers run out and do not droop when loaded.",
@@ -75,7 +75,7 @@ export const stage = {
         ),
         item(
           "alignment",
-          "Alignment to a real wall",
+          "Fit units to the real wall, not a perfect one",
           "Walls are rarely perfectly plumb. Forcing a long wardrobe into a bad line takes the shutters out of alignment.",
           "Pack or scribe the end panels. Do not ask for a thick mortar pad under a counter to hide a unit that was fixed out of level.",
           "Gaps between shutters are even. The counter is level.",
@@ -87,12 +87,12 @@ export const stage = {
     ),
     sub(
       "services-and-lofts",
-      "Services, chimney and lofts",
+      "Fit the chimney, sockets and lofts",
       "The boxes must not trap the things that have to work.",
       [
         item(
           "chimney-and-sockets",
-          "Chimney and sockets",
+          "Send the chimney outside and place the sockets",
           "A chimney that empties into a sealed loft is not a chimney. A socket trapped behind a finished carcass means a cut shutter.",
           "The duct should leave the kitchen. Hob cut-out, purifier, and sockets are agreed before the boxes are fixed. Follow the appliance maker's height above the hob.",
           "You can point to the duct's way out, and to a socket for each appliance.",
@@ -102,7 +102,7 @@ export const stage = {
         ),
         item(
           "lofts",
-          "Lofts",
+          "Keep lofts light and ventilated",
           "A loft is not a surprise mezzanine. The slab above was not designed for a godown unless the engineer said so.",
           "Ventilate lofts. Do not block a terrace outlet or a floor trap above. Keep them light.",
           "The loft door opens, and nothing important is buried behind it.",
@@ -112,13 +112,40 @@ export const stage = {
         ),
         item(
           "finish-and-smell",
-          "Polish and adhesive",
+          "Let polish dry before you sleep in the room",
           "Fresh polyurethane and strong adhesives need air. Sleeping in the room the same night is a bad idea.",
           "Let boards acclimatise, seal cut edges in wet zones, and give polish time to cure before clothes go in.",
           "The room can be occupied only after the smell has dropped and the maker's cure time has passed.",
           ["Ask when the coat was applied.", "Do not pack clothes into a wet polish."],
           ["Clothes hung the same day as a heavy PU coat."],
           ["When is this room safe to sleep in?"],
+        ),
+      ],
+    ),
+    sub(
+      "false-ceiling",
+      "Add a false ceiling",
+      "A finish choice for lights and a lower ceiling. The house is safe without it.",
+      [
+        item(
+          "decide",
+          "Decide before painting",
+          "A false ceiling is optional. It hides some wiring and holds lights, and it costs extra.",
+          "Choose it before the final paint, so the edges can be finished cleanly.",
+          "You can skip it. If you do not want it, say so before the painter prices the ceiling.",
+          ["The decision is written, not assumed."],
+          ["A ceiling started after the final paint, then cut back."],
+          ["Do we want a false ceiling in this room?"],
+        ),
+        item(
+          "do-not-drill-beams",
+          "Do not drill into beams",
+          "Hangers screwed into a beam can hit the steel inside it.",
+          "Fix hangers to the slab in the places the engineer accepts, not by drilling through beams.",
+          "If you skip the ceiling, this does not apply. If you build one, this rule is not optional.",
+          ["Ask where each hanger goes.", "No drill into a beam."],
+          ["Hangers lined up along a beam because it was 'stronger'."],
+          ["Will any screw go into a beam?"],
         ),
       ],
     ),

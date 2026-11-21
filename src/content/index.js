@@ -8,6 +8,7 @@ import { stage as woodwork } from "./stages/interior-woodwork";
 import { stage as masonry } from "./stages/masonry-concealed-services";
 import { stage as painting } from "./stages/painting";
 import { stage as plaster } from "./stages/plastering";
+import { stepExtras } from "./step-extras";
 import { stage as structural } from "./stages/structural-construction";
 
 const trees = [structural, masonry, plaster, flooring, doors, woodwork, painting, handover];
@@ -23,6 +24,13 @@ for (const stage of publicStages) {
       throw new Error(`Duplicate sub-stage ${subStage.slug} in ${stage.slug}`);
     }
     subSlugs.add(subStage.slug);
+    const extra = stepExtras[subStage.slug];
+    if (!extra || !Array.isArray(extra.why) || extra.why.length < 2 || extra.why.length > 4) {
+      throw new Error(`Step ${subStage.slug} needs 2 to 4 'why' points`);
+    }
+    subStage.why = extra.why;
+    subStage.optional = Boolean(extra.optional);
+    subStage.timeHint = extra.timeHint || "";
     const itemSlugs = new Set();
     for (const entry of subStage.items) {
       if (itemSlugs.has(entry.slug)) {

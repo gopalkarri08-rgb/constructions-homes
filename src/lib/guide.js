@@ -3,6 +3,7 @@ import { getItem, getStageContent, getSubStage } from "@/content";
 import { getPublicStage } from "@/data/stages-public";
 import { membershipCoversStage } from "@/lib/access";
 import { getStageChecks } from "@/lib/checks";
+import { getStepSkips } from "@/lib/skips";
 import { paymentsAvailability } from "@/lib/payments-config";
 import { getViewer } from "@/lib/session";
 
@@ -21,7 +22,10 @@ export async function loadGuide(stageSlug) {
   }
 
   const tree = getStageContent(preview.slug);
-  const checks = await getStageChecks(viewer.user.id, preview.slug);
+  const [checks, skips] = await Promise.all([
+    getStageChecks(viewer.user.id, preview.slug),
+    getStepSkips(viewer.user.id, preview.slug),
+  ]);
   return {
     missing: false,
     preview,
@@ -30,6 +34,7 @@ export async function loadGuide(stageSlug) {
     entitled: true,
     tree,
     checks,
+    skips,
     content: { getSubStage, getItem },
   };
 }

@@ -6,12 +6,12 @@ export const stage = {
   subStages: [
     sub(
       "materials-and-mortar",
-      "Bricks, blocks and mortar",
+      "Choose bricks or blocks, and mix the mortar",
       "The wall is only as good as the unit and the joint.",
       [
         item(
           "clay-bricks",
-          "Clay bricks",
+          "Soak clay bricks before laying",
           "A dry clay brick sucks water out of the mortar, so the joint never sets properly.",
           "Soak clay bricks well before laying, long enough that a splash is not the method. Use a 1:6 cement-sand mortar for 230 mm walls and a richer mix, about 1:4, for 115 mm partitions. Sand full of silt makes a dusty joint.",
           "Bricks that have actually been soaked, and mortar that holds together when you rub a cured joint.",
@@ -21,7 +21,7 @@ export const stage = {
         ),
         item(
           "aac-blocks",
-          "AAC blocks",
+          "Lay light blocks (AAC) the way the maker says",
           "AAC (autoclaved aerated concrete) is not laid like clay brick. Soaking it and using a thick cement joint wastes the product and weakens the wall.",
           "Do not soak AAC. Use the thin-bed adhesive and the joint thickness the block maker specifies, usually a few millimetres.",
           "The maker's adhesive, not a thick cement bed 'because the mason knows cement'.",
@@ -33,12 +33,12 @@ export const stage = {
     ),
     sub(
       "building-the-walls",
-      "Building the walls",
+      "Build the walls straight",
       "Plumb, in line, and tied to the frame.",
       [
         item(
           "plumb-and-line",
-          "Plumb and line",
+          "Keep each wall upright and in one line",
           "A wall out of plumb becomes thick plaster later. Thick plaster cracks.",
           "Keep walls plumb, in one line, and to the thickness agreed. Rake clay-brick joints a little so the plaster has a key.",
           "A straightedge and a plumb check at least once a wall, not only at the end of the floor.",
@@ -48,7 +48,7 @@ export const stage = {
         ),
         item(
           "top-of-wall",
-          "Packing up to the beam",
+          "Close the gap under the beam",
           "The gap between the top of the wall and the beam soffit is where cracks start if it is stuffed with loose bits.",
           "Pack the gap tight after the wall has settled a little, with a proper fill, not loose rubble and a smear of mortar on plaster day.",
           "No daylight gap left 'for later'.",
@@ -60,12 +60,12 @@ export const stage = {
     ),
     sub(
       "lintels-and-bands",
-      "Lintels and bands",
+      "Put a small beam over every door and window",
       "The wall above a window must not sit on the frame.",
       [
         item(
           "lintels",
-          "Lintels over openings",
+          "Cast a lintel so the frame does not carry the wall",
           "A lintel carries the wall across a door or window. The frame is not a post.",
           "Provide a lintel over every opening, bearing on both sides, commonly 150 mm or more. In seismic areas, cast the lintel and sill bands the drawing shows.",
           "No opening without a lintel. A thin concrete pad that barely sits on the jamb is not bearing.",
@@ -75,7 +75,7 @@ export const stage = {
         ),
         item(
           "sills",
-          "Window sills in the masonry",
+          "Set the window sill height and slope",
           "The sill is where rain will sit. It is built now, even if the window comes later.",
           "Form the opening to the sill height on the schedule, and plan a slight outward slope in the sill concrete.",
           "Sill height matches the drawing. A flat sill that slopes back into the room is wrong even at this stage.",
@@ -87,12 +87,12 @@ export const stage = {
     ),
     sub(
       "electrical-conduits",
-      "Electrical conduits",
+      "Lay the pipes for the electric wires",
       "The paths for wires, placed before plaster.",
       [
         item(
           "conduit-and-boxes",
-          "Conduits and boxes",
+          "Fix wire pipes and junction boxes",
           "Heavy-gauge PVC conduit, with a junction box wherever a wire will be drawn or joined. A draw wire left inside saves the plaster later.",
           "Keep power separate from TV and data. House circuits should be copper, not aluminium. Plan the distribution board, earthing, and dedicated circuits for air-conditioners, the geyser, and the kitchen now.",
           "Conduits on an agreed layout, boxes that will sit flush with the plaster, and a draw wire in each run. The board is not planned inside a bathroom.",
@@ -102,7 +102,7 @@ export const stage = {
         ),
         item(
           "chases",
-          "Chases",
+          "Cut grooves without weakening the wall",
           "A chase is the groove cut for a pipe. A long horizontal chase in a thin wall weakens it.",
           "Cut chases neat and shallow, as a rule not deeper than about a third of the wall. Prefer vertical drops. Do not chase a column or a beam.",
           "In a 115 mm partition, avoid long horizontal cuts. This guide assumes a concrete frame. A load-bearing wall is a different structure: do not chase it without the engineer.",
@@ -114,12 +114,12 @@ export const stage = {
     ),
     sub(
       "plumbing",
-      "Water supply and drainage",
+      "Lay the water pipes and the drains",
       "Leaks inside a wall are a demolition job.",
       [
         item(
           "supply-lines",
-          "Supply lines and the pressure test",
+          "Test the water pipes before they are hidden",
           "Water supply in a house is usually CPVC or a comparable ISI pipe. Joints fail, so they are tested while you can still see them.",
           "Pressure-test the lines and walk every joint. Hold the pressure long enough to look, about an hour is a sound habit. Photograph the routes before they are covered.",
           "No line is plastered over without a test. Aluminium or random hose is not a water line.",
@@ -129,7 +129,7 @@ export const stage = {
         ),
         item(
           "drains",
-          "Drains, slope and vents",
+          "Give drains a fall so water does not sit",
           "A drain that holds water smells and blocks. Small waste lines commonly need a fall around 1 in 40 to 1 in 60, with no backfall.",
           "Use the right grade of SWR or PVC pipe, keep a continuous fall, put traps where the drawing shows them, and provide a vent so traps are not sucked dry.",
           "Pour a bucket. Water should leave. A floor trap set proud of the future floor is already wrong.",
@@ -141,12 +141,12 @@ export const stage = {
     ),
     sub(
       "waterproofing",
-      "Waterproofing before it is buried",
+      "Waterproof bathrooms before you fill them",
       "Sunken toilets and balconies leak from the layer under the filling, not from the tile.",
       [
         item(
           "sunken-slab",
-          "Sunken toilets and balconies",
+          "Flood-test the sunken bathroom",
           "The waterproof layer goes on the sunken slab, turns up the wall, and is pond-tested before the filling goes in.",
           "Form a cove at the wall junction, carry shower waterproofing up to shower height, and pond-test for at least 48 hours. The ceiling below should stay dry.",
           "A pond test you have seen. 'We will waterproof after the tiles' is the wrong order.",
@@ -156,7 +156,7 @@ export const stage = {
         ),
         item(
           "sleeves-not-breaks",
-          "Pipes through slabs",
+          "Pass pipes through sleeves, not broken concrete",
           "A pipe through a slab should use the sleeve that was cast in.",
           "Do not break a beam, a column, or a slab rib to pass a pipe. If a sleeve was missed, ask the engineer before anyone hammers.",
           "Every pipe you can see uses a sleeve or a formed opening.",

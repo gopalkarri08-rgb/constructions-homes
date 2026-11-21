@@ -6,12 +6,12 @@ export const stage = {
   subStages: [
     sub(
       "sanitary",
-      "Sanitary fittings",
+      "Fit taps, basins and toilets",
       "The joints you will live with, sealed so they can be opened later.",
       [
         item(
           "fixtures",
-          "WCs, basins and taps",
+          "Seal toilets and basins with silicone, not white cement",
           "White cement as the only seal around a WC or a counter cracks and stains.",
           "Fit ISI-marked ware from makers who will still have a seat or a cartridge in five years. Seal with sanitary silicone. Angle valves should be reachable. Traps should be something you can open later.",
           "Every tap, trap, and WC tried with water. No active leak left 'for later'.",
@@ -21,7 +21,7 @@ export const stage = {
         ),
         item(
           "wet-test",
-          "A wet test of each bathroom",
+          "Run each bathroom and watch the ceiling below",
           "The ceiling below tells you if the bathroom works as a system.",
           "Fill each bathroom, run the shower, and watch the ceiling below and the floor trap. The floor should empty to the trap.",
           "No puddle left in a corner. The ceiling below stays dry.",
@@ -33,12 +33,12 @@ export const stage = {
     ),
     sub(
       "electrical-final",
-      "The electrical board",
+      "Check the safety switch and the earth",
       "The safety switch and the earth are not finishing details.",
       [
         item(
           "rccb",
-          "RCCB or ELCB",
+          "Test the safety switch (RCCB or ELCB)",
           "An RCCB or ELCB cuts power if current leaks to earth. 30 mA is the sensitivity used to protect people.",
           "The board should have one covering the circuits people can touch. Bathrooms and the kitchen belong on it. It should trip when you press the test button. Circuits are labelled in words a guest can read.",
           "A device that trips on its test button. No RCCB is not acceptable.",
@@ -48,7 +48,7 @@ export const stage = {
         ),
         item(
           "earthing-and-circuits",
-          "Earth and dedicated circuits",
+          "Check the earth, and give the geyser its own circuit",
           "A wire twisted onto a water pipe is not an earth. A geyser or an AC on a lighting circuit is a fire risk.",
           "Earthing should be a real electrode that has been tested. Geysers and air-conditioners sit on their own circuits. A tester should confirm earth and phase at those points.",
           "Earth present at the geyser, the kitchen, and the AC points. The board does not run warm.",
@@ -60,12 +60,12 @@ export const stage = {
     ),
     sub(
       "fixtures-and-water",
-      "Fans, lights, geysers and rain",
+      "Fit fans, lights and the geyser, and send rain away",
       "Things that hang, heat, or throw water.",
       [
         item(
           "fans-and-lights",
-          "Fans and heavy lights",
+          "Hang fans from the slab, not from weak plaster",
           "A fan hung from a plastic plug in weak plaster will come down.",
           "Hang fans and heavy lights from the hooks and boxes left in the slab. The fan should be firm, and its control should work.",
           "The fixing is in the structure, not only in the plaster.",
@@ -75,7 +75,7 @@ export const stage = {
         ),
         item(
           "geyser",
-          "Geyser",
+          "Give the geyser its own switch and a drip tray",
           "A geyser in a loft needs a place for a leak to go, and a circuit that matches its load.",
           "Follow the maker's electrical rating. If it sits in a loft, give it a drip tray and a safe discharge. It is not on a lighting circuit.",
           "Its own circuit, an earth, and a valve you can reach.",
@@ -85,7 +85,7 @@ export const stage = {
         ),
         item(
           "rainwater",
-          "Terrace outlets and the plinth",
+          "Send terrace water away from the walls",
           "Rain that spills into the soil against the foundation is a structural problem, not a gardening one.",
           "Connect terrace outlets and downpipes so water leaves the building. It should not pond at the foot of the wall. Clean the overhead tank before anyone drinks from it, and check the overflow.",
           "Outlets run clear. Water is not collecting against the plinth.",
@@ -97,12 +97,12 @@ export const stage = {
     ),
     sub(
       "snag-and-papers",
-      "Snag list and papers",
+      "Walk the snag list and collect the papers",
       "The last payment is the leverage. Use it on a written list.",
       [
         item(
           "snag-list",
-          "The snag walk",
+          "Write a snag list before the last payment",
           "A house is not finished because the calendar says so. Seepage is not 'normal in the first year'. It has a source.",
           "Walk every room: cracks, lippage, chips, doors that do not latch, paint on the floor, a missing stopper, a rocking switch, a dripping tap, a slope that pools. Write it, photograph it, agree a date, and walk it again.",
           "A written list you have walked. The final payment is not due before that walk.",
@@ -112,7 +112,7 @@ export const stage = {
         ),
         item(
           "documents",
-          "Drawings, warranties and spares",
+          "Collect drawings, keys and shade names",
           "You will need the drawing when someone wants to drill a beam, and the shade code when a wall is scuffed.",
           "Collect sanctioned drawings, structural drawings, the soil report, waterproofing and anti-termite records, paint shade codes, warranties, the electrical schedule, spare tiles, and every key, before the final bill.",
           "Drawings, keys, and shade codes in your hand. 'We will send them' after the last payment is how they vanish.",
@@ -122,7 +122,7 @@ export const stage = {
         ),
         item(
           "drainage-system",
-          "Septic tank, soak pit or sewer",
+          "Check the septic tank or the sewer connection",
           "The first chamber should not leak, and the tank should not sit on top of a borewell's setback. Local rules set that distance.",
           "Confirm the connection is complete. If it is too close to a well or a bore, stop and ask before the ground is closed.",
           "It holds water at the first chamber and is connected. An open pit next to the bore is not finished.",

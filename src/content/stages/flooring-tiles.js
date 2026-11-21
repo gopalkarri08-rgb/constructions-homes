@@ -6,12 +6,12 @@ export const stage = {
   subStages: [
     sub(
       "before-tiling",
-      "Before the tiles",
+      "Check levels and waterproofing before tiles",
       "Levels and waterproofing are decided under the tile, not in the grout.",
       [
         item(
           "substrate",
-          "Substrate",
+          "Tile only on a clean, tested base",
           "Tiles on a dusty, uncured, or uneven bed debond. You hear them, then they crack.",
           "Tile only on a cured, clean substrate. In bathrooms, balconies, and on the terrace, the waterproofing and the pond test come first. Tiles are not the waterproof layer.",
           "A surface you can sweep clean, and a pond test you have seen in every wet area.",
@@ -21,7 +21,7 @@ export const stage = {
         ),
         item(
           "levels",
-          "Levels at doors and balconies",
+          "Keep wet floors lower than dry rooms",
           "The balcony and the bathroom should finish lower than the room beside them, so water cannot walk in.",
           "Set levels before the first tile. Turn waterproofing up at the junction. A balcony higher than the room is a design error, not a style.",
           "No path for rain from the balcony into the bedroom. No step that trips at the bathroom door unless it was deliberate and safe.",
@@ -33,12 +33,12 @@ export const stage = {
     ),
     sub(
       "laying",
-      "Laying",
+      "Lay the tiles on a full bed",
       "Large vitrified tiles are unforgiving of a hollow bed.",
       [
         item(
           "adhesive",
-          "Adhesive and bed",
+          "Use tile adhesive, not a thick cement bed",
           "Vitrified and large-format tiles need a polymer-modified tile adhesive, not a thick bed of site-mixed sand and cement.",
           "Back-butter large tiles so the bed is full. A hollow tile cracks later, often under a chair leg.",
           "A labelled adhesive for vitrified tiles, and a tap test that does not find large hollow areas.",
@@ -48,7 +48,7 @@ export const stage = {
         ),
         item(
           "layout-and-batch",
-          "Layout and batch",
+          "Set the layout and keep one shade of tile",
           "Shade differences and a sliver of tile beside the main door are layout decisions, made before the adhesive.",
           "Set out from the most visible line. Buy a spare box from the same batch and keep it. Write down the shade code.",
           "One batch in one room. Do not place a cracked tile in the corner 'because the wardrobe will cover it' unless you accept the risk in writing.",
@@ -58,7 +58,7 @@ export const stage = {
         ),
         item(
           "lippage",
-          "Lippage",
+          "Keep tiles level with each other",
           "Lippage is one tile standing proud of the next. You feel it with a bare foot.",
           "Keep tiles in one plane. Run a hand or a straightedge across joints.",
           "No proud edge you can catch a toe on. Paper-thin joints that cannot be grouted are not a finish.",
@@ -70,12 +70,12 @@ export const stage = {
     ),
     sub(
       "joints-slopes-finish",
-      "Joints, slopes and finish",
+      "Finish the gaps, the slope and the edges",
       "The grout, the fall, and the edge you will live with.",
       [
         item(
           "joints",
-          "Joint width and movement",
+          "Leave a gap you can grout",
           "A hairline paper joint chips and cannot be grouted. Around 2 to 3 mm is a practical indoor minimum unless the tile maker says otherwise.",
           "Use spacers. Leave movement joints at the perimeter, over structural joints, and in long runs, and fill those with a flexible sealant rather than hard grout.",
           "Even joints, actually grouted. White cement wiped on as grout stains and washes out.",
@@ -85,7 +85,7 @@ export const stage = {
         ),
         item(
           "wet-floor-fall",
-          "Fall to the floor trap",
+          "Slope the bathroom floor to the drain",
           "A bathroom floor must send water to the trap. A puddle in the corner is a failed fall.",
           "Before grouting, pour a mug of water. It should reach the trap from every corner. Use epoxy or a proper waterproof grout in bathrooms and on the kitchen floor.",
           "No ponding. The trap is not proud of the tiles around it.",
@@ -95,7 +95,7 @@ export const stage = {
         ),
         item(
           "stairs-and-outside",
-          "Stairs, parking and outside",
+          "Use a non-slip tile on stairs and wet floors",
           "A polished tile on a wet stair is dangerous.",
           "Use a slip-resistant surface on stairs, bathrooms, and parking. Finish visible cut edges. Nosing on stairs should be solid, not a thin glued strip that peels.",
           "Wet areas and stairs are not the same polished tile as the living room unless that tile is rated for it.",
@@ -105,13 +105,47 @@ export const stage = {
         ),
         item(
           "spares",
-          "Spares and the record",
+          "Keep spare tiles of the same shade",
           "You will break a tile. The shade will not match next year.",
           "Keep a spare box from the same batch, and write the shade code and the adhesive name where you will find them.",
           "At least a few tiles and the shade code on the bill.",
           ["The spare box is set aside, not used to finish the last room."],
           ["No spares, and the code was on a box that was thrown away."],
           ["Where will the spare tiles be stored?"],
+        ),
+      ],
+    ),
+    sub(
+      "spare-tiles",
+      "Keep spare tiles of the same batch",
+      "You will crack one. The same shade is often gone later.",
+      [
+        item(
+          "keep-a-box",
+          "Set one box aside",
+          "Spare tiles from the same batch are the only reliable match for a future repair.",
+          "Keep a box, and write the shade code on it. Do not use that box to finish the last room.",
+          "A few loose tiles and the shade name on the bill is enough if a full box is hard to store.",
+          ["The box is marked and stored where you can find it."],
+          ["The last box was used up, and the code was thrown away."],
+          ["Where will this spare box live?"],
+        ),
+      ],
+    ),
+    sub(
+      "terrace-extra-coat",
+      "Add an extra waterproof layer on the open terrace",
+      "An upgrade for a terrace that takes the full rain. The bathroom work is separate, and that part is not optional.",
+      [
+        item(
+          "when-it-helps",
+          "Decide if the extra layer is worth it",
+          "Bathrooms and sunken slabs need waterproofing. An open terrace may already have a system on the drawing. A second layer is extra insurance.",
+          "Add it if the terrace is large, the house is in heavy rain, or the first system is only a thin coat. Then flood-test again.",
+          "You can skip this if the drawing's terrace system is complete and you have seen it pond-tested.",
+          ["You know what the drawing already specifies for the terrace.", "If you add a layer, you test it with water."],
+          ["Skipping the bathroom waterproofing because this extra was skipped. They are different."],
+          ["Does the drawing already include a full terrace waterproofing system?"],
         ),
       ],
     ),

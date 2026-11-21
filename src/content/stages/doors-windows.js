@@ -6,12 +6,12 @@ export const stage = {
   subStages: [
     sub(
       "material",
-      "The material of the frame",
+      "Choose wood, aluminium or UPVC that will stay straight",
       "A twisted or green frame never grows a straight shutter.",
       [
         item(
           "wood-moisture",
-          "Seasoned wood",
+          "Reject wood that is still green",
           "Unseasoned timber shrinks after the first dry season. Gaps, cracks, and a shutter that will not latch follow.",
           "Frames should be seasoned, ideally kiln-dried, and around 10 to 14 percent moisture when fixed. A moisture meter is a small tool. Treat timber against termite before it is fixed, and store it off damp floors.",
           "Wood that is not green, not heavy with sap, and not lying in the rain. Cement packed hard against wood holds damp and rots the foot of the frame.",
@@ -21,7 +21,7 @@ export const stage = {
         ),
         item(
           "aluminium-upvc",
-          "Aluminium and UPVC",
+          "Reject frames you can bend by hand",
           "Thin metal flexes. UPVC without steel inside the profile does the same.",
           "Aluminium should be powder-coated or anodised, thick enough that a shutter does not flex when you push a corner. Around 50 microns is a common coating ask. UPVC should be multi-chamber, with the galvanised steel reinforcement the system needs, and with welded corners.",
           "A section you cannot flex with one hand, gaskets in place, and reinforcement where the system requires it.",
@@ -33,12 +33,12 @@ export const stage = {
     ),
     sub(
       "fixing",
-      "Fixing the frames",
+      "Fix the frames straight",
       "The lintel carries the wall. The frame does not.",
       [
         item(
           "plumb-and-holdfasts",
-          "Plumb and holdfasts",
+          "Fix frames upright, with anchors in the wall",
           "A frame out of plumb makes a shutter that swings open on its own or binds.",
           "Fix frames plumb and square. Holdfasts or stainless fasteners should go into concrete or properly plugged masonry, commonly three each side of a door, and the holdfasts should be grouted.",
           "Holdfasts grouted, not bent back into a chase. The lintel spans the opening on its own.",
@@ -48,7 +48,7 @@ export const stage = {
         ),
         item(
           "gap-and-seal",
-          "Gap around the frame",
+          "Leave a small gap and seal it",
           "Timber and metal move. A hard cement pack all round a wooden frame holds damp against it.",
           "Leave a small, even gap and seal the outside with a compatible sealant.",
           "Not a solid cement fill against wood. The gap should be even, not a wedge.",
@@ -60,12 +60,12 @@ export const stage = {
     ),
     sub(
       "rain-and-glass",
-      "Rain and glass",
+      "Keep rain out and use safe glass",
       "Water comes in at the sill and the head. Glass is a safety issue, not only a look.",
       [
         item(
           "sills-and-drips",
-          "Sills, drips and thresholds",
+          "Slope the sill outward",
           "A sill that slopes the wrong way brings the monsoon inside.",
           "Slope window sills outward. A chajja needs a drip on the underside. External doors need a threshold that stops rain walking in.",
           "Water poured on the sill runs out, not in. No dead-flat sill on the weather face.",
@@ -75,7 +75,7 @@ export const stage = {
         ),
         item(
           "glass",
-          "Toughened glass where people can hit it",
+          "Use toughened glass where people can hit it",
           "Ordinary glass in a bathroom door or a large low pane is an injury when someone slips.",
           "Use toughened glass in bathrooms, in doors, near the floor, and in large panes. Look for the toughening mark.",
           "The mark is on the glass you paid to toughen. Float glass in a bathroom is not acceptable.",
@@ -85,7 +85,7 @@ export const stage = {
         ),
         item(
           "grills-and-exit",
-          "Grills and a way out",
+          "Leave one window you can open in an emergency",
           "A bedroom grill that cannot be opened is a fire problem, not only a security choice.",
           "Agree, before the bars are welded permanent, at least one opening on an upper floor that a person can actually use.",
           "The conversation happens before fabrication, not after the grill is fixed.",
@@ -97,12 +97,12 @@ export const stage = {
     ),
     sub(
       "shutters-and-hardware",
-      "Shutters and hardware",
+      "Fit shutters, locks and stoppers",
       "The parts you touch every day.",
       [
         item(
           "shutters",
-          "Shutters that latch",
+          "Make sure each shutter latches",
           "A shutter that must be lifted onto its latch was hung on a frame that is out of plumb, or on hinges that have already sagged.",
           "Shutters should close onto the latch without being lifted. Adjust before paint makes everyone reluctant to remove a screw. Gaskets on aluminium and UPVC should be continuous, with no daylight at the meeting styles.",
           "They latch. Daylight through a closed window is a fail.",
@@ -112,7 +112,7 @@ export const stage = {
         ),
         item(
           "hardware",
-          "Hinges, locks, mesh",
+          "Fit hinges, locks and a stopper",
           "Hinges too small for a solid main door complain immediately and fail later.",
           "Use hinges sized for the shutter, a lock you are willing to live with, tower bolts that meet their keepers, and a stopper so the shutter does not punch the plaster. Decide mosquito mesh now.",
           "Hardware is in this bill, not a vague extra. Stoppers are on before handover.",

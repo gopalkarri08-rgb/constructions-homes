@@ -6,12 +6,12 @@ export const stage = {
   subStages: [
     sub(
       "ready-to-paint",
-      "When the wall is ready",
+      "Wait until the walls are dry",
       "New plaster is alkaline and still giving up water. Paint on a damp wall blisters.",
       [
         item(
           "dry-wall",
-          "Dry plaster",
+          "Check the wall is dry before paint",
           "In dry weather a new wall may need a few weeks after curing. In the monsoon or on the coast it takes longer.",
           "The wall should look evenly pale, not patchy-dark. Tape polythene to it overnight. If the inside of the sheet comes away wet, it is not ready.",
           "Do not paint a cool, dark, damp wall because a function date has been printed.",
@@ -21,7 +21,7 @@ export const stage = {
         ),
         item(
           "cracks",
-          "Cracks before putty",
+          "Deal with cracks before you fill them",
           "Putty fills. It does not tie a moving joint.",
           "Open cracks at columns, beams, and window corners, and mesh or seal them. Find out why a crack is moving before you skim it.",
           "Putty alone in a crack at a beam-wall joint is not a repair.",
@@ -33,12 +33,12 @@ export const stage = {
     ),
     sub(
       "primer-and-coats",
-      "Primer and coats",
+      "Prime, then paint two coats inside",
       "New cement plaster burns ordinary paint if the primer is wrong.",
       [
         item(
           "primer",
-          "Alkali-resistant primer",
+          "Use a primer made for new cement plaster",
           "Fresh plaster is alkaline. The primer has to tolerate that.",
           "Use a primer meant for new plaster, then acrylic wall putty inside, in thin coats, sanded between coats.",
           "Primer you can see went on, not a claim. Putty is thin, to fill, not to rebuild the wall.",
@@ -48,7 +48,7 @@ export const stage = {
         ),
         item(
           "two-coats",
-          "Two finish coats",
+          "Ask for two finish coats, not one thin one",
           "Paint thinned until it runs like milk is how one coat is stretched into two.",
           "Plan on a primer and two finish coats, thinned only as the tin allows. Ceilings get the same number of coats. They show every skip.",
           "Two finish coats are in the bill and on the wall. One coat is not a system.",
@@ -58,7 +58,7 @@ export const stage = {
         ),
         item(
           "shade-code",
-          "Shade codes",
+          "Write down the paint shade name",
           "You will need the shade for the first scuff. Nobody remembers it.",
           "Keep one batch on a single wall where you can, and write down the shade codes. Keep a tin lid.",
           "The code is on the bill or a lid you did not throw away.",
@@ -70,12 +70,12 @@ export const stage = {
     ),
     sub(
       "exterior-and-wet",
-      "Exterior and wet rooms",
+      "Paint the outside and the wet rooms properly",
       "The weather face and the bathroom are different paints from the bedroom.",
       [
         item(
           "exterior",
-          "Exterior system",
+          "Use outside paint, including the tops",
           "Interior emulsion on the outside fails. The tops of chajjas and parapets take the rain first.",
           "Use an exterior-grade system: primer and stated coats, including those tops.",
           "A named exterior product and a stated number of coats. An unnamed 'weather coat' with no primer is not a system.",
@@ -85,7 +85,7 @@ export const stage = {
         ),
         item(
           "wet-rooms",
-          "Kitchens and bathrooms",
+          "Do not use cheap dry paint in a bathroom",
           "Distemper does not belong where water runs.",
           "Use a washable, moisture-tolerant finish where the wall is painted, and tile or a real waterproof coat where water actually runs.",
           "No distemper in a bathroom. Leaks are stopped before they are painted. Paint is not a leak repair.",
@@ -95,7 +95,7 @@ export const stage = {
         ),
         item(
           "clean-finish",
-          "Masking and a clean finish",
+          "Keep paint off switches, frames and floors",
           "Paint on a teak edge or a switchboard is rework.",
           "Mask frames, switches, and floors. Ventilate while the film cures, and keep the room out of daily use until the smell has gone.",
           "Switchboards and frames are clean at the end of the work.",
