@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #12110f;
+  --ink-soft: #1b1916;
+  --panel: #24211c;
+  --cream: #f3eee6;
+  --cream-dim: #cbbfae;
+  --gold: #c6a36a;
+  --gold-bright: #e2c892;
+  --line: rgba(228, 210, 176, 0.16);
+  --background: var(--ink);
+  --foreground: var(--cream);
 }
 
 @theme inline {
+  --font-sans: var(--font-outfit), "Segoe UI", sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-panel: var(--panel);
+  --color-cream: var(--cream);
+  --color-cream-dim: var(--cream-dim);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-line: var(--line);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  background-color: var(--ink);
+  color: var(--cream);
+  background-image:
+    radial-gradient(920px 460px at 100% -8%, rgba(198, 163, 106, 0.09), transparent 55%),
+    radial-gradient(680px 380px at -12% 8%, rgba(243, 238, 230, 0.045), transparent 50%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(198, 163, 106, 0.35);
+  color: var(--cream);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  body,
+  body * {
+    background: white !important;
+    color: black !important;
+    border-color: #ccc !important;
+  }
 }
