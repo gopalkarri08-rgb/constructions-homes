@@ -17,6 +17,7 @@ Run the SQL migration, then set the environment variables below in `.env.local` 
 | `RAZORPAY_KEY_SECRET` | Server-only. Creates orders and subscriptions, and checks payment signatures. |
 | `RAZORPAY_WEBHOOK_SECRET` | Server-only. Verifies `X-Razorpay-Signature` on the webhook. |
 | `RAZORPAY_MONTHLY_PLAN_ID` | Razorpay plan id for the ₹999 monthly subscription. |
+| `ASSIST_PROVIDER` | Optional. Leave empty for now. Later set to `openai` or `gemini` when that adapter is implemented. The assistant route still replies “AI assistant coming soon”. |
 
 ### Database migration
 
@@ -24,7 +25,9 @@ In the Supabase SQL editor, or with the Supabase CLI, run:
 
 `supabase/migrations/20261121120000_membership.sql`
 
-That creates `profiles`, `memberships`, and `payments`. Row level security lets a user read only their own rows. There are no insert or update policies for signed-in users. Membership and payment writes go through the service role. A profile row is created by a security-definer trigger from the name and location collected at email signup.
+That creates `profiles`, `memberships`, and `payments`.
+
+`supabase/migrations/20261122000000_user_item_checks.sql` creates the per-user ticks. Apply it on Supabase project `cshlyxsmzxmvorpjsvpy` when the stage-hierarchy pull request is merged, not before. Members can read and write only their own rows. Row level security lets a user read only their own rows. There are no insert or update policies for signed-in users. Membership and payment writes go through the service role. A profile row is created by a security-definer trigger from the name and location collected at email signup.
 
 ### Supabase redirect URLs
 

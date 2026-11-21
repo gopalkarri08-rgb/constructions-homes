@@ -1,7 +1,7 @@
 /**
  * Public stage catalogue.
  * Titles and teasers only. The standards, checklists, and red flags live in
- * stages-full.js, which is server-only and must not be imported here.
+ * src/content/stages, which is server-only and must not be imported here.
  */
 
 export const publicStages = [

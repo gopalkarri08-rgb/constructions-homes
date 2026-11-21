@@ -27,6 +27,7 @@ export default async function DashboardPage({ searchParams }) {
   if (!viewer.user) redirect("/login?next=/dashboard");
 
   const params = await searchParams;
+  const { countStage } = await import("@/content");
 
   return (
     <Container className="py-12 sm:py-16">
@@ -46,6 +47,7 @@ export default async function DashboardPage({ searchParams }) {
       <ol className="mt-10 border-t border-line">
         {publicStages.map((stage) => {
           const open = membershipCoversStage(viewer.memberships, stage.slug);
+          const counts = open ? countStage(stage.slug) : null;
           return (
             <li key={stage.slug}>
               <Link
@@ -60,7 +62,9 @@ export default async function DashboardPage({ searchParams }) {
                     {stage.title}
                   </span>
                   <span className="mt-1 block text-sm text-cream-dim">
-                    {open ? "Open on your plan" : "Locked"}
+                    {open
+                      ? `Open · ${counts.subStages} parts · ${counts.items} items`
+                      : "Locked"}
                   </span>
                 </span>
               </Link>
