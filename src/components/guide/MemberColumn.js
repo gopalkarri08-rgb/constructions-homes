@@ -8,6 +8,7 @@ export default function MemberColumn({
   kicker,
   title,
   lede,
+  note,
   progress,
   hint,
   children,
@@ -47,6 +48,7 @@ export default function MemberColumn({
         <h1 className="mt-2 max-w-3xl text-balance font-display text-[2.2rem] font-semibold leading-[1.08] tracking-[-0.03em] text-cream sm:text-5xl">
           {title}
         </h1>
+        {note ? <p className="mt-3 max-w-2xl text-sm leading-6 text-gold">{note}</p> : null}
         {lede ? <p className="mt-4 max-w-2xl text-base leading-7 text-cream-dim">{lede}</p> : null}
         {progress ? <div className="mt-6 max-w-md">{progress}</div> : null}
         {hint ? <p className="mt-4 max-w-xl text-sm leading-relaxed text-cream">{hint}</p> : null}

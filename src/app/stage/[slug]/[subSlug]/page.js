@@ -11,6 +11,7 @@ import { checkKey } from "@/lib/check-key";
 import { progressFor } from "@/lib/checks";
 import { loadGuide } from "@/lib/guide";
 import { pageMeta } from "@/lib/meta";
+import { projectLine } from "@/lib/project-options";
 import { getPublicStage } from "@/data/stages-public";
 
 export async function generateMetadata({ params }) {
@@ -52,6 +53,7 @@ export default async function SubStagePage({ params }) {
       back={{ href: `/stage/${slug}`, label: "Back" }}
       kicker={`Part ${String(subIndex + 1).padStart(2, "0")}`}
       title={found.subStage.title}
+      note={projectLine(guide.project)}
       lede={found.subStage.summary}
       progress={
         subProgress.skipped ? null : (

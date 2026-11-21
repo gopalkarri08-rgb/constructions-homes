@@ -7,6 +7,7 @@ import LockedStage from "@/components/LockedStage";
 import { checkKey } from "@/lib/check-key";
 import { loadGuide } from "@/lib/guide";
 import { pageMeta } from "@/lib/meta";
+import { projectLine } from "@/lib/project-options";
 import { getPublicStage } from "@/data/stages-public";
 
 export async function generateMetadata({ params }) {
@@ -55,6 +56,7 @@ export default async function ItemPage({ params }) {
       back={{ href: `/stage/${slug}/${subSlug}`, label: "Back" }}
       kicker={found.subStage.title}
       title={found.item.title}
+      note={projectLine(guide.project)}
       lede={found.subStage.timeHint || null}
       crumbs={[
         { href: "/dashboard", label: "Your stages" },

@@ -9,6 +9,7 @@ import { getPublicStage, publicStages } from "@/data/stages-public";
 import { progressFor } from "@/lib/checks";
 import { loadGuide } from "@/lib/guide";
 import { pageMeta } from "@/lib/meta";
+import { projectLine } from "@/lib/project-options";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -69,6 +70,7 @@ export default async function StagePage({ params }) {
       back={{ href: "/dashboard", label: "Back to your stages" }}
       kicker={`Stage ${String(preview.id).padStart(2, "0")}`}
       title={preview.title}
+      note={projectLine(guide.project)}
       lede="Open a step with the arrow. Then work through the checks inside it."
       progress={<ProgressMeter done={progress.done} total={progress.total} />}
       hint={
