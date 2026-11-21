@@ -22,11 +22,10 @@ export default function HouseSummary({ project }) {
 
   const stage = project.current_stage_slug ? getPublicStage(project.current_stage_slug) : null;
   const facts = [
-    projectLine(project).replace(/\.$/, ""),
     buildTypeLabel(project.construction_type),
     project.plot_size_sqft ? `${Number(project.plot_size_sqft).toLocaleString("en-IN")} sq ft` : "",
+    project.city && project.state ? `${project.city}, ${project.state}` : project.city,
     project.budget_inr ? formatInr(project.budget_inr) : "",
-    stage ? stage.title : "",
   ].filter(Boolean);
 
   return (
@@ -37,7 +36,9 @@ export default function HouseSummary({ project }) {
           Edit
         </Link>
       </div>
-      <p className="mt-2 text-sm leading-6 text-cream-dim">{facts.join(" · ")}</p>
+      <p className="mt-2 text-sm leading-6 text-gold">{projectLine(project)}</p>
+      <p className="mt-1 text-sm leading-6 text-cream-dim">{facts.join(" · ")}</p>
+      {stage ? <p className="mt-1 text-sm leading-6 text-cream-dim">Work is at {stage.title}.</p> : null}
     </section>
   );
 }
