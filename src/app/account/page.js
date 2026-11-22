@@ -2,12 +2,14 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import CancelMembership from "@/components/CancelMembership";
 import Container from "@/components/Container";
+import HouseSummary from "@/components/HouseSummary";
 import { signOut } from "@/lib/auth-actions";
 import { planName } from "@/lib/access";
 import { pageMeta } from "@/lib/meta";
 import { paymentsAvailability } from "@/lib/payments-config";
 import { formatWhen } from "@/lib/plans";
 import { getPublicStage } from "@/data/stages-public";
+import { getProject } from "@/lib/project";
 import { getViewer } from "@/lib/session";
 
 export const metadata = pageMeta({
@@ -30,6 +32,7 @@ export default async function AccountPage() {
   }
   if (!viewer.user) redirect("/login?next=/account");
 
+  const { project } = await getProject(viewer.user.id);
   const payments = paymentsAvailability();
   const monthly = viewer.memberships.find(
     (item) => item.plan === "monthly" && item.status === "active" && item.razorpay_subscription_id,
@@ -45,6 +48,10 @@ export default async function AccountPage() {
       {viewer.profile?.location ? (
         <p className="mt-1 text-sm text-cream-dim">{viewer.profile.location}</p>
       ) : null}
+
+      <div className="mt-10 max-w-2xl">
+        <HouseSummary project={project} />
+      </div>
 
       <h2 className="mt-12 font-display text-3xl font-semibold text-cream">Membership</h2>
       {viewer.memberships.length === 0 ? (

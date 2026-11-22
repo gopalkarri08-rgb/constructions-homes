@@ -6,12 +6,12 @@ export const stage = {
   subStages: [
     sub(
       "before-plaster",
-      "Before anyone plasters",
+      "Finish pipes and tests before plaster",
       "Plaster locks in whatever is unfinished behind it.",
       [
         item(
           "services-closed",
-          "Services finished and tested",
+          "Close and test pipes before the coat goes on",
           "Chases, pressure tests, and wet-area waterproofing belong to the previous stage. Plaster covers them.",
           "Plaster only after masonry has cured and after tests are done. Do not plaster a wall that is still being chased.",
           "No open chase, and a passed water test, before the coat goes on.",
@@ -21,7 +21,7 @@ export const stage = {
         ),
         item(
           "mesh-at-joints",
-          "Mesh at concrete-to-masonry joints",
+          "Add mesh where brick meets concrete",
           "Cracks like to start where brick meets a column or a beam, and at the corners of openings.",
           "Fix alkali-resistant mesh or chicken mesh across every such junction, lapping about 150 mm onto both materials. Do the same diagonally at opening corners.",
           "Mesh at the frame-to-wall joints, not only on the easy stretches.",
@@ -33,12 +33,12 @@ export const stage = {
     ),
     sub(
       "internal-plaster",
-      "Internal plaster",
+      "Plaster the inside walls",
       "The coat that makes the rooms true.",
       [
         item(
           "thickness",
-          "Thickness",
+          "Keep inside plaster about 12 mm thick",
           "Internal plaster is commonly about 12 mm. If a wall needs 30 or 40 mm to look straight, the wall is the problem.",
           "Keep to about 12 mm. Correct a badly out-of-plumb wall, or accept an honest line. Do not bury it.",
           "Thickness checked in a few places, not only judged from across the room.",
@@ -48,7 +48,7 @@ export const stage = {
         ),
         item(
           "mix-and-sand",
-          "Mix and sand",
+          "Use clean sand and the right mix",
           "A common internal mix is about 1:6 cement to sand. Sand full of silt makes weak, dusty plaster.",
           "Use well-graded sand. If a jar of sand and water settles with a thick mud layer, the silt is too high.",
           "Mortar that does not dust off after curing. A neat-cement skin over entire rooms looks smooth on day one and hairline-cracks soon after. Use it only where it was specified.",
@@ -58,7 +58,7 @@ export const stage = {
         ),
         item(
           "line-and-reveals",
-          "Line, corners and reveals",
+          "Check corners and window openings",
           "Uneven work shows for years at corners, window reveals, and the line above the skirting.",
           "Check with a straightedge, not only by eye from the door. Reveals should be plumb so frames and tiles do not need thick packing.",
           "Corners straight enough that a door frame will sit without a wedge of plaster.",
@@ -70,12 +70,12 @@ export const stage = {
     ),
     sub(
       "ceilings",
-      "Ceilings",
+      "Plaster the ceilings so they stay up",
       "Ceiling plaster falls off when it never had a key.",
       [
         item(
           "bonding",
-          "Bond to the slab",
+          "Give the ceiling plaster something to grip",
           "A mirror-smooth slab soffit does not hold plaster. The coat drums and falls in patches.",
           "Hack the concrete or apply a bonding agent before ceiling plaster.",
           "A key or a bonding coat. Plaster straight onto glossy shutter-finished concrete is not acceptable.",
@@ -87,12 +87,12 @@ export const stage = {
     ),
     sub(
       "external-plaster",
-      "External plaster",
+      "Plaster the outside, including the tops",
       "The coat that takes the rain.",
       [
         item(
           "external-mix",
-          "Mix, thickness and coverage",
+          "Cover the outside, including sunshade tops",
           "External plaster is commonly about 15 to 18 mm, richer than the inside, often about 1:4, sometimes with a waterproofing compound.",
           "Cover the whole outside, including parapets and the tops of chajjas. Those tops take the rain first.",
           "A continuous external coat. Leaving the parapet top 'for later' is how the ceiling below gets damp.",
@@ -102,7 +102,7 @@ export const stage = {
         ),
         item(
           "drips",
-          "Drips and sills",
+          "Add a drip so rain falls clear of the wall",
           "A drip on the underside of a chajja makes rain fall clear of the wall instead of running back in.",
           "Form drip moulds under chajjas and keep window sills sloping outward.",
           "A visible drip and an outward sill. A flat underside on the monsoon face is a leak waiting.",
@@ -114,12 +114,12 @@ export const stage = {
     ),
     sub(
       "wet-rooms-and-curing",
-      "Wet rooms and curing",
+      "Protect wet rooms and keep new plaster damp",
       "Bathrooms are not a paint problem. Plaster here has to suit water, and every coat needs curing.",
       [
         item(
           "wet-area-coat",
-          "Bathrooms and the kitchen",
+          "Waterproof the shower before tiles",
           "Paint on a bathroom wall is not a waterproofing system.",
           "Carry a waterproof coat up the splash and shower zone before tiling.",
           "The shower zone is treated up to shower height, not a token 100 mm.",
@@ -129,7 +129,7 @@ export const stage = {
         ),
         item(
           "curing-plaster",
-          "Curing the plaster",
+          "Keep new plaster damp for a week",
           "Fresh plaster that bakes in the afternoon sun cracks and dusts.",
           "Cure for at least 7 days, longer in hot weather. Do not let a finished wall dry out on its first day.",
           "Seven days, including Sunday. A single splash and the scaffold coming down is not curing.",

@@ -39,6 +39,7 @@ export default function Header({ user }) {
   const links = user
     ? [
         { href: "/dashboard", label: "Dashboard" },
+        { href: "/project", label: "Your house" },
         { href: "/account", label: "Account" },
       ]
     : [

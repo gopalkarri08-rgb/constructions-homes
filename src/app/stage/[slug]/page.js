@@ -3,11 +3,13 @@ import { notFound } from "next/navigation";
 import AssistantPanel from "@/components/guide/AssistantPanel";
 import MemberColumn from "@/components/guide/MemberColumn";
 import ProgressMeter from "@/components/guide/ProgressMeter";
+import StageSteps from "@/components/guide/StageSteps";
 import LockedStage from "@/components/LockedStage";
 import { getPublicStage, publicStages } from "@/data/stages-public";
 import { progressFor } from "@/lib/checks";
 import { loadGuide } from "@/lib/guide";
 import { pageMeta } from "@/lib/meta";
+import { projectLine } from "@/lib/project-options";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -41,57 +43,57 @@ export default async function StagePage({ params }) {
     );
   }
 
-  const { preview, tree, checks } = guide;
-  const progress = progressFor(tree.subStages, checks.keys);
+  const { preview, tree, checks, skips } = guide;
+  const progress = progressFor(tree.subStages, checks.keys, skips.slugs);
   const index = publicStages.findIndex((stage) => stage.slug === preview.slug);
   const previous = publicStages[index - 1] ?? null;
   const next = publicStages[index + 1] ?? null;
+  const steps = tree.subStages.map((subStage) => {
+    const subProgress = progress.bySub[subStage.slug];
+    return {
+      slug: subStage.slug,
+      title: subStage.title,
+      summary: subStage.summary,
+      optional: Boolean(subStage.optional),
+      why: subStage.why,
+      timeHint: subStage.timeHint,
+      done: subProgress.done,
+      total: subProgress.total,
+      skipped: subProgress.skipped,
+      items: subStage.items.map((entry) => ({ slug: entry.slug, title: entry.title })),
+    };
+  });
+  const nextStep = steps.find((step) => !step.skipped && step.done < step.total);
 
   return (
     <MemberColumn
+      back={{ href: "/dashboard", label: "Back to your stages" }}
       kicker={`Stage ${String(preview.id).padStart(2, "0")}`}
       title={preview.title}
-      lede="Open a part of the work. Each card is a sub-stage. Tick items as you check them on site."
+      note={projectLine(guide.project)}
+      lede="Open a step with the arrow. Then work through the checks inside it."
       progress={<ProgressMeter done={progress.done} total={progress.total} />}
+      hint={
+        nextStep
+          ? `What to do next: ${nextStep.title}.`
+          : "Every required step in this stage is checked or skipped."
+      }
       crumbs={[
         { href: "/dashboard", label: "Your stages" },
         { label: preview.title },
       ]}
-      assistant={
-        <AssistantPanel stageSlug={preview.slug} scopeLabel={preview.title} />
-      }
+      assistant={<AssistantPanel stageSlug={preview.slug} scopeLabel={preview.title} />}
     >
       {!checks.ready ? (
         <p className="mb-4 text-sm text-cream-dim">
-          Ticks will save to your account once the checks table is migrated.
+          Ticks and skips will save once the database tables are migrated.
         </p>
       ) : null}
-      <ol className="grid gap-3">
-        {tree.subStages.map((subStage, subIndex) => {
-          const subProgress = progress.bySub[subStage.slug];
-          return (
-            <li key={subStage.slug}>
-              <Link
-                href={`/stage/${preview.slug}/${subStage.slug}`}
-                className="block rounded-lg border border-line bg-ink-soft p-5 transition-colors hover:border-gold/40"
-              >
-                <div className="flex items-baseline justify-between gap-4">
-                  <span className="font-display text-xl tabular-nums text-gold">
-                    {String(subIndex + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-xs text-cream-dim">
-                    {subProgress.done}/{subProgress.total}
-                  </span>
-                </div>
-                <h2 className="mt-3 font-display text-2xl font-semibold tracking-[-0.02em] text-cream">
-                  {subStage.title}
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-cream-dim">{subStage.summary}</p>
-              </Link>
-            </li>
-          );
-        })}
-      </ol>
+      <StageSteps
+        stageSlug={preview.slug}
+        steps={steps}
+        initialOpen={nextStep?.slug || steps[0]?.slug || ""}
+      />
       <nav className="mt-8 grid gap-3 sm:grid-cols-2" aria-label="Other stages">
         {previous ? (
           <Link href={`/stage/${previous.slug}`} className="rounded-lg border border-line px-4 py-3">

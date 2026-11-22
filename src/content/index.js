@@ -8,11 +8,14 @@ import { stage as woodwork } from "./stages/interior-woodwork";
 import { stage as masonry } from "./stages/masonry-concealed-services";
 import { stage as painting } from "./stages/painting";
 import { stage as plaster } from "./stages/plastering";
+import { assertProductMap } from "./products";
+import { stepExtras } from "./step-extras";
 import { stage as structural } from "./stages/structural-construction";
 
 const trees = [structural, masonry, plaster, flooring, doors, woodwork, painting, handover];
 
 const bySlug = new Map(trees.map((stage) => [stage.slug, stage]));
+const allItemSlugs = new Set();
 
 for (const stage of publicStages) {
   const tree = bySlug.get(stage.slug);
@@ -23,12 +26,23 @@ for (const stage of publicStages) {
       throw new Error(`Duplicate sub-stage ${subStage.slug} in ${stage.slug}`);
     }
     subSlugs.add(subStage.slug);
+    const extra = stepExtras[subStage.slug];
+    if (!extra || !Array.isArray(extra.why) || extra.why.length < 2 || extra.why.length > 4) {
+      throw new Error(`Step ${subStage.slug} needs 2 to 4 'why' points`);
+    }
+    subStage.why = extra.why;
+    subStage.optional = Boolean(extra.optional);
+    subStage.timeHint = extra.timeHint || "";
     const itemSlugs = new Set();
     for (const entry of subStage.items) {
       if (itemSlugs.has(entry.slug)) {
         throw new Error(`Duplicate item ${entry.slug} in ${stage.slug}/${subStage.slug}`);
       }
       itemSlugs.add(entry.slug);
+      if (allItemSlugs.has(entry.slug)) {
+        throw new Error(`Duplicate item slug ${entry.slug}`);
+      }
+      allItemSlugs.add(entry.slug);
       for (const key of ["what", "best", "minimum"]) {
         if (!entry[key] || entry[key].length < 20) {
           throw new Error(`Thin ${key} on ${stage.slug}/${subStage.slug}/${entry.slug}`);
@@ -42,6 +56,8 @@ for (const stage of publicStages) {
     }
   }
 }
+
+assertProductMap(allItemSlugs);
 
 export function getStageContent(slug) {
   return bySlug.get(slug) ?? null;

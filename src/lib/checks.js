@@ -24,20 +24,27 @@ export async function getStageChecks(userId, stageSlug) {
   return { ready: true, keys };
 }
 
-export function progressFor(subStages, keys) {
+export function progressFor(subStages, keys, skippedSlugs = new Set()) {
   let total = 0;
   let done = 0;
   const bySub = {};
   for (const subStage of subStages) {
+    const skipped = Boolean(subStage.optional) && skippedSlugs.has(subStage.slug);
     let subDone = 0;
-    for (const entry of subStage.items) {
-      total += 1;
-      if (keys.has(checkKey(subStage.slug, entry.slug))) {
-        done += 1;
-        subDone += 1;
+    if (!skipped) {
+      for (const entry of subStage.items) {
+        total += 1;
+        if (keys.has(checkKey(subStage.slug, entry.slug))) {
+          done += 1;
+          subDone += 1;
+        }
       }
     }
-    bySub[subStage.slug] = { done: subDone, total: subStage.items.length };
+    bySub[subStage.slug] = {
+      done: subDone,
+      total: subStage.items.length,
+      skipped,
+    };
   }
   return { done, total, bySub };
 }
